@@ -1,5 +1,5 @@
 # csid_bill_payer
-Uses Selenium to automate a Chrome browser to pay your Coral Springs Improvement District water bill.
+Uses Selenium to automate a Chrome browser to pay your Coral Springs Improvement District water bill. Use at your own risk, if the CSID site changes this may not work as originally designed. Always confirm your payment succeeded independently.
 
 To use
 
