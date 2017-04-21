@@ -1,5 +1,5 @@
 var webdriver = require('selenium-webdriver'),
-    chrome = require('selenium-webdriver/chrome'),
+    chrome = require('chromedriver'),
     fs = require('fs'),
     By = webdriver.By,
     until = webdriver.until;

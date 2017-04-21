@@ -4,6 +4,7 @@
   "description": "Uses Selenium to automate a Chrome browser to pay your monthly water bill.",
   "main": "app.js",
   "dependencies": {
+    "chromedriver": "^2.29.0",
     "fs": "0.0.1-security",
     "selenium-webdriver": "^3.3.0"
   },
