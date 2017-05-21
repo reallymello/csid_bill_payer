@@ -5,6 +5,7 @@ var webdriver = require('selenium-webdriver'),
     until = webdriver.until;
 
 var config = require('./config.js');
+var promise = require('selenium-webdriver').promise;
 
 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var d = new Date();
@@ -48,18 +49,32 @@ driver.findElement(By.name('paymentMethod.cardHolderName')).sendKeys(config.firs
 driver.findElement(By.name('submitBtn')).click();
 driver.findElement(By.name('header.acceptTermsAndConditions')).click();
 driver.findElement(By.name('submitBtn')).click();
-//driver.quit();
 
-/*
-var tableRows = driver.findElements(By.css("tr"));
-var confirmationPage = "";
+driver.wait(until.elementLocated(By.css("tr")), 10000).then(tr => {
+    var pendingRows = driver.findElements(By.css("tr"));
 
-for(var i = 5; i < tableRows.size; i++) {
-    confirmationPage = confirmationPage + tableRows[i].innerHTML;
-}
+    pendingRows.then(function (elements) {
+        var pendingHtml = elements.map(function (elem) {
+            return elem.getText();
+        });
 
-fs.writeFile(config.filePathForConfirmation + fileName, confirmationPage, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
+        promise.all(pendingHtml).then(function (allHtml) {
+            allHtml.length = allHtml.length - 4;
+
+            var confirmationPage = "";
+            for (var i = 6; i < allHtml.length; i++) {
+                confirmationPage = confirmationPage + allHtml[i] + "\r\n";
+            }
+
+            console.log(confirmationPage);
+
+            fs.writeFile(config.filePathForConfirmation + fileName, confirmationPage, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved to ' +
+                    config.filePathForConfirmation + fileName);
+            });
+        });
+    });
 });
-*/
+
+driver.quit();
