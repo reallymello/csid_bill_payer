@@ -72,9 +72,8 @@ driver.wait(until.elementLocated(By.css("tr")), 10000).then(tr => {
                 if (err) throw err;
                 console.log('The file has been saved to ' +
                     config.filePathForConfirmation + fileName);
+                driver.quit();
             });
         });
     });
 });
-
-driver.quit();
