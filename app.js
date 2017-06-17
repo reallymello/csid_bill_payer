@@ -50,6 +50,8 @@ driver.findElement(By.name('submitBtn')).click();
 driver.findElement(By.name('header.acceptTermsAndConditions')).click();
 driver.findElement(By.name('submitBtn')).click();
 
+driver.wait(until.elementLocated(By.css(".highlight_summary_row")));
+
 driver.wait(until.elementLocated(By.css("tr")), 10000).then(tr => {
     var pendingRows = driver.findElements(By.css("tr"));
 
