@@ -40,17 +40,21 @@ driver.findElement(By.name('customer.firstName')).sendKeys(config.firstName);
 driver.findElement(By.name('customer.lastName')).clear();
 driver.findElement(By.name('customer.lastName')).sendKeys(config.lastName)
 driver.findElement(By.id('customer.dayPhone.formattedText')).sendKeys(
-    `${config.areaCode}-${config.officeCode}-${config.lineNumber}`
+    `(${config.areaCode}) ${config.officeCode}-${config.lineNumber}`
 );
+driver.sleep(1000);
 driver.findElement(By.id('cc-group-heading')).click();
 driver.wait(until.elementIsVisible(
     driver.findElement(By.id('ccAccountNumber')), 3000));
-driver.findElement(By.id('ccAccountNumber')).sendKeys(config.ccAccount);
-driver.findElement(By.id('ccCvv')).sendKeys(config.cvv);
+driver.wait(until.elementIsVisible(
+    driver.findElement(By.id('ccExpiryDateMonth')), 3000));
+driver.sleep(1000);
 driver.findElement(By.css("#ccExpiryDateMonth option[value='" + config.expirationMM + "']")).click();
 driver.findElement(By.css("#ccExpiryDateYear option[value='" + config.expirationYYYY + "']")).click();
 driver.findElement(By.id('ccCardHolderName')).clear();
 driver.findElement(By.id('ccCardHolderName')).sendKeys(config.firstName + " " + config.lastName);
+driver.findElement(By.id('ccAccountNumber')).sendKeys(config.ccAccount);
+driver.findElement(By.id('ccCvv')).sendKeys(config.cvv);
 driver.findElement(By.name('continueButton')).click();
 
 driver.wait(until.elementLocated(By.id("make-payment-btn")));
