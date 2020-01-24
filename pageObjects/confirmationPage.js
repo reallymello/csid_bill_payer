@@ -4,7 +4,8 @@ let confirmationPage = function (driver, config) {
     let webdriver = require('selenium-webdriver'),
         By = webdriver.By,
         until = webdriver.until,
-        promise = require('selenium-webdriver').promise;
+        promise = require('selenium-webdriver').promise,
+        fs = require('fs');
 
     let d = new Date();
     let fileName = monthNames[d.getMonth()] + ' ' + d.getFullYear().toString().substr(-2) + ".txt";
