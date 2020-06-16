@@ -1,17 +1,17 @@
 {
-  "name": "csid_bill_payer",
-  "version": "1.0.0",
-  "description": "Uses Selenium to automate a Chrome browser to pay your monthly water bill.",
-  "main": "app.js",
-  "dependencies": {
-    "chromedriver": "^80.0.1",
-    "fs": "0.0.1-security",
-    "selenium-webdriver": "^3.6.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "David Mello",
-  "license": "ISC"
+    "name": "csid_bill_payer",
+    "version": "1.0.0",
+    "description": "Uses Selenium to automate a Chrome browser to pay your monthly water bill.",
+    "main": "app.js",
+    "dependencies": {
+        "chromedriver": "^83.0.0",
+        "fs": "0.0.1-security",
+        "selenium-webdriver": "^3.6.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "David Mello",
+    "license": "ISC"
 }
