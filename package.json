@@ -6,7 +6,7 @@
     "dependencies": {
         "chromedriver": "^93.0.1",
         "fs": "0.0.1-security",
-        "selenium-webdriver": "^3.6.0"
+        "selenium-webdriver": "^4.8.2"
     },
     "devDependencies": {},
     "scripts": {
